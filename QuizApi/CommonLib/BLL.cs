@@ -24,9 +24,9 @@ namespace QuizApi.CommonLib
                         {
                             UserID = Convert.ToInt32(userRow["UserID"]),
                             FirstName = userRow["FirstName"].ToString(),
-                            LastName = userRow["UserID"].ToString(),
-                            Email = userRow["UserID"].ToString(),
-                            Phone = userRow["UserID"].ToString()
+                            LastName = userRow["LastName"].ToString(),
+                            Email = userRow["Email"].ToString(),
+                            Phone = userRow["Phone"].ToString()
                         }
                     );
                 }
