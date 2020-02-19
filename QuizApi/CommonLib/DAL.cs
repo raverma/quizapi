@@ -38,23 +38,36 @@ namespace QuizApi.CommonLib
       }
     }
 
-    public int ExecuteProcedure(string procedureName, ICollection<Parameter> paramCollection, string connectionString)
+    public int ExecuteNonQuerySql(string sqlText, string connectionString)
     {
       using (SqlConnection Connection = new SqlConnection(connectionString))
       {
-        using (SqlCommand cmd = new SqlCommand(procedureName, Connection))
+        using (SqlCommand cmd = new SqlCommand(sqlText, Connection))
         {
-          cmd.CommandType = CommandType.StoredProcedure;
-          foreach (Parameter param in paramCollection)
-          {
-            cmd.Parameters.Add(param.GetParam());
-          }
+          cmd.CommandType = CommandType.Text;
           cmd.Connection.Open();
           return cmd.ExecuteNonQuery();
         }
       }
     }
-  
+
+    public int ExecuteProcedure(string procedureName, ICollection<Parameter> paramCollection, string connectionString)
+    {
+        using (SqlConnection Connection = new SqlConnection(connectionString))
+        {
+            using (SqlCommand cmd = new SqlCommand(procedureName, Connection))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                foreach (Parameter param in paramCollection)
+                {
+                    cmd.Parameters.Add(param.GetParam());
+                }
+                cmd.Connection.Open();
+                return cmd.ExecuteNonQuery();
+            }
+        }
+    }
+
     public DataTable ExecuteCommand(string sqlCommand, string connectionString)
     {
       DataTable dtResult = new DataTable();
