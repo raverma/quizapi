@@ -29,5 +29,21 @@ namespace QuizApi.Controllers.Api
             return bll.GetUsers();
         }
 
+        [Route("api/Users/Register")]
+        [HttpPost]
+        public void Register(User user)
+        {
+            bll.Register(user);
+        }
+
+
+        [Route("api/Users/Login")]
+        [HttpPost]
+        public string Login(User user)
+        {
+            bll = new BLL();
+            return bll.Login(user.Email, user.Password);
+        }
+
     }
 }
