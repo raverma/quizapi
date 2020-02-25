@@ -5,7 +5,7 @@ using System.Web;
 using System.Configuration;
 using System.Data;
 using QuizApi.Models;
-namespace QuizApi.CommonLib
+namespace QuizApi.CommonLib.BLL
 {
     public class BLL
     {
