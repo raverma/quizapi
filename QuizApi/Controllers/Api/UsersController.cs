@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using QuizApi.Models;
-using QuizApi.CommonLib;
+using QuizApi.CommonLib.BLL;
 
 namespace QuizApi.Controllers.Api
 {
