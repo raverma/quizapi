@@ -12,7 +12,7 @@ namespace QuizApi.CommonLib
         public IEnumerable<User> GetUsers()
         {
             List<User> users = new List<User>();
-            string strSql = "SELECT UserID, FirstName, LastName, Email, Email2, Phone FROM Users";
+            string strSql = "SELECT UserID, FirstName, LastName, Email, Email2, Phone FROM Users"; //just a comment
             DAL dba = new DAL();
             DataTable dtUsers = dba.ExecuteCommand(strSql,ConfigurationManager.ConnectionStrings["QuizDB"].ConnectionString);
             if (dtUsers.Rows.Count > 0)
