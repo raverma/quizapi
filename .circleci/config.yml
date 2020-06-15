@@ -9,4 +9,7 @@
     
      steps:
        - checkout
-       - run: dotnet build
+       - run:
+          name: "Install project dependencies"
+          command: dotnet.exe restore build
+                 
