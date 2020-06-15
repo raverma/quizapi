@@ -11,5 +11,8 @@
        - checkout
        - run:
           name: "Install project dependencies"
-          command: dotnet.exe restore build
+          command: dotnet.exe restore 
+       - run:
+          name: "Run Build step"
+          command: dotnet.exe build -c Release -r win10-x64
                  
