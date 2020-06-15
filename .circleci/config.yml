@@ -14,4 +14,3 @@
           name: "Run Build step"
           command: dotnet.exe build 
                  
- c
